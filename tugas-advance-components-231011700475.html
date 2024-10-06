@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pemesanan Tiket Online</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .form-container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .form-title {
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Form Pemesanan Tiket Online -->
+  <section class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8 col-sm-12 form-container">
+        <h2 class="form-title text-center">Pemesanan Tiket Online</h2>
+        <form>
+
+          <!-- Date Picker (Tanggal Pemesanan) -->
+          <div class="mb-3">
+            <label for="tanggalPemesanan" class="form-label">Pilih Tanggal Pemesanan</label>
+            <input type="date" class="form-control" id="tanggalPemesanan" required>
+            <div class="invalid-feedback">
+              Silakan pilih tanggal pemesanan.
+            </div>
+          </div>
+
+          <!-- Spinner (Jumlah Tiket) -->
+          <div class="mb-3">
+            <label for="jumlahTiket" class="form-label">Jumlah Tiket</label>
+            <input type="number" class="form-control" id="jumlahTiket" min="1" max="10" value="1" required>
+            <div class="invalid-feedback">
+              Silakan masukkan jumlah tiket yang valid (minimal 1, maksimal 10).
+            </div>
+          </div>
+
+          <!-- Checkbox (Setuju dengan Syarat dan Ketentuan) -->
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="setujuSyarat" required>
+            <label class="form-check-label" for="setujuSyarat">Saya setuju dengan syarat dan ketentuan</label>
+            <div class="invalid-feedback">
+              Anda harus menyetujui syarat dan ketentuan sebelum melanjutkan.
+            </div>
+          </div>
+
+          <!-- Tombol Submit -->
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary">Pesan Tiket</button>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- JavaScript for Form Validation -->
+  <script>
+    (function () {
+      'use strict'
+      var forms = document.querySelectorAll('.needs-validation')
+
+      Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+            form.classList.add('was-validated')
+          }, false)
+        })
+    })()
+  </script>
+</body>
+</html>
